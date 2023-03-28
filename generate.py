@@ -1,10 +1,11 @@
-import requests
 import os
 import shutil
+import requests
 from urllib import request
 
 
 METERON_API_KEY = os.getenv('METERON_API_KEY')
+METERON_MODEL = os.getenv('METERON_MODEL', "stable-diffusion")
 
 url = "https://app.meteron.ai/api/images/generations"
 
@@ -12,7 +13,7 @@ payload = {"prompt": "futuristic city, extra detailed"}
 headers = {
 	"Content-Type": "application/json",
 	"Authorization": "Bearer " + METERON_API_KEY,
-	"X-Model": "stable-diffusion",
+	"X-Model": METERON_MODEL,
 	"X-Async": "false",
   "X-User": "user-id-1"
 }
